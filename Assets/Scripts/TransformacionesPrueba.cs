@@ -20,11 +20,7 @@ public class TransformacionesPrueba : MonoBehaviour {
 		factory = calcularFenotipo(codigoGenetico,1);
 		TransformacionAfin (factorx,factory);
 	}
-	
-	// Update is called once per frame
-	void Update() {
-		
-	}
+
 
 	private void TransformacionAfin (int factorx, int factory) {
 		factory = factory - 5;

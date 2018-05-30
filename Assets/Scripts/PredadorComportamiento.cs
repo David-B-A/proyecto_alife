@@ -118,8 +118,7 @@ public class PredadorComportamiento : MonoBehaviour {
 	void OnCollisionEnter(Collision collision){
 		if (collision.gameObject.tag == "presa") {
 			vida = vida + 70;
-		}
-		if (collision.gameObject.tag == "pared") {
+		}else if (collision.gameObject.tag == "pared" || collision.gameObject.tag == "palitoLSystem") {
 			float nuevoy, yex = transform.rotation.eulerAngles.y;
 			if (collision.contacts [0].normal.x > 0.95f || collision.contacts [0].normal.x < -0.95f) {
 				nuevoy = 360 - yex;

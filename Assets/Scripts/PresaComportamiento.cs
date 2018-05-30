@@ -40,7 +40,7 @@ public class PresaComportamiento : MonoBehaviour {
 	private int tiempoEnDireccionActual=0;
 	private int tiempoParaCambioDeDireccionCaminataAleatoria=50;
 
-	public bool asignarMetabolismoEstandar = false;
+	public bool metabolismoPorCodigoGenetico = false;
 
 	public BitArray codigoGenetico;
 
@@ -81,17 +81,18 @@ public class PresaComportamiento : MonoBehaviour {
 		tiempoDeEsperaEntreReproducciones = tiempoDeEsperaEntreReproducciones + tiempoActual + random.Next (10);
 		tiempoParaReproducirse = tiempoDeEsperaEntreReproducciones + tiempoActual;
 		vision = calcularFenotipo(codigoGenetico,2)*1.3f;
-		edadMaxima = calcularFenotipo(codigoGenetico,3)*1000;
+		edadMaxima = calcularFenotipo(codigoGenetico,3)*300;
 		metabolismo = calcularFenotipo(codigoGenetico,4);
 		capacidadDeAlmacenamiento =  300 + calcularFenotipo(codigoGenetico,5)*20;
 
 		distantanciaParaIrPorUnGrano = 0.5f*vision;
-		if(asignarMetabolismoEstandar){
+		if(!metabolismoPorCodigoGenetico){
 			vision = 10;
 			edadMaxima = 1000;
 			metabolismo = 10;
 			capacidadDeAlmacenamiento =  1000;
 		}
+		vida = capacidadDeAlmacenamiento - 200;
 	}
 
 
@@ -119,7 +120,7 @@ public class PresaComportamiento : MonoBehaviour {
 				caminataActual = ("escape");
 			} else if(choqueParedOCompa && tiempoDejarDeAlejarse > tiempoActual){
 				caminataActual = ("alejarse de pared");
-			} else if ((tiempoParaReproducirse < Time.frameCount) && (vida > comidaMinimaParaReproducirse) && reproducirse ()&& reproduccionHabilidada) {
+			} else if ((tiempoParaReproducirse < Time.frameCount) && (vida > comidaMinimaParaReproducirse) && reproduccionHabilidada && reproducirse ()) {
 				rotacion = direccionAPareja;
 				caminataActual = ("reproduccion");
 			} else if (buscarComida ()&& alimentarse) {
@@ -134,6 +135,12 @@ public class PresaComportamiento : MonoBehaviour {
 			}
 			transform.rotation = rotacion;
 			//transform.rotation = Quaternion.Slerp (transform.rotation, rotacion,rapidezCambioDir);
+
+			//Barra de vida
+			foreach(Transform hijo in transform){
+				hijo.localScale = new Vector3 (0.03f*(vida/capacidadDeAlmacenamiento),0.0055f,0.0055f);
+			}
+			//Barra de vida
 		}
 
 		transform.Translate (metabolismo*Vector3.back/20);
@@ -267,7 +274,6 @@ public class PresaComportamiento : MonoBehaviour {
 		}
 
 		if (amigoscercanos > 1) {
-			Debug.Log (yagrupal);
 			xgrupal = xgrupal / amigoscercanos;
 			zgrupal = zgrupal / amigoscercanos;
 			yagrupal = yagrupal / amigoscercanos;

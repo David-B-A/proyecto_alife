@@ -49,11 +49,6 @@ public class DistribuidorDeComida : MonoBehaviour {
 					//Instantiate (azucar, new Vector3 (x[i], 20, z[i]), Quaternion.identity);
 					cuenta++;
 				}
-			} else if (Time.frameCount % tiempoCambio == (int) (tiempoCambio/2) || tiempoCambio - Time.frameCount % tiempoCambio <= 5) {
-				todosLosGranos = GameObject.FindGameObjectsWithTag ("comida");
-				for (int i = 0; i < todosLosGranos.Length; i++) {
-					Destroy (todosLosGranos[i]);
-				}
 			} else {
 				int posi = 0;
 				int posf = 20;
@@ -69,6 +64,12 @@ public class DistribuidorDeComida : MonoBehaviour {
 				}
 			}
 		}
+		if (Time.frameCount % (tiempoCambio/2) <= 5 ) {
+			todosLosGranos = GameObject.FindGameObjectsWithTag ("comida");
+			for (int i = 0; i < todosLosGranos.Length; i++) {
+				Destroy (todosLosGranos[i]);
+			}
+		} 
 		todosLosGranos = GameObject.FindGameObjectsWithTag ("comida");
 		contador = todosLosGranos.Length;
 		Texto.GetComponent<Text> ().text += String.Concat("\nComida: \t\t\t",contador);
