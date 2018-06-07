@@ -83,7 +83,7 @@ public class PresaComportamiento : MonoBehaviour {
 		vision = calcularFenotipo(codigoGenetico,2)*1.3f;
 		edadMaxima = calcularFenotipo(codigoGenetico,3)*300;
 		metabolismo = calcularFenotipo(codigoGenetico,4);
-		capacidadDeAlmacenamiento =  300 + calcularFenotipo(codigoGenetico,5)*20;
+		capacidadDeAlmacenamiento =  300 + calcularFenotipo(codigoGenetico,5)*10;
 
 		distantanciaParaIrPorUnGrano = 0.5f*vision;
 		if(!metabolismoPorCodigoGenetico){
