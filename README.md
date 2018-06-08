@@ -4,7 +4,7 @@
 Presa: Triceratops.
 Predador: Tiranosaurus.
 
-[![alt text](http://bagelstravels.com/wp-content/uploads/2016/02/YouTube-social-icon2.jpg)]()
+[![alt text](https://lh3.googleusercontent.com/gqFRzbTMgsICzwZ5TgIiRXnL6diJ6fqx74lciaqcRg7sUEX7wtk9Pvuhb_KZwFMajVlZIs05GNqpE0ZV2_1D=w1366-h662-rw)](https://youtu.be/xKl0sauAKuE)
 
 ### Conceptos de Vida Artificial
 
@@ -18,4 +18,4 @@ Predador: Tiranosaurus.
 * Código Genético que define el metabolismo, color, piel, vista, y forma (transformación afín) del individuo.
 
 ### Código genético
-![alt text](https://lh6.googleusercontent.com/yRpVUg3ca7ARj6jMbrBUs5QOj2Pj-5UISVZtQ-l1PANG8LJkLo2bpKkdrmw9CtPWtUC0iXTQdtdNnqal-nRJ=w1366-h662)
+![alt text](https://lh6.googleusercontent.com/Ecguwq3CegZ59g_6fv5WYtEy6KRFyyzFGJzbZOHqMBEtxtbj6McDX-2bN1mp4P8jrzX9wRzuNu5k29OVWsQc=w1366-h662)
